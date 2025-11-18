@@ -3,11 +3,9 @@ import localFont from "next/font/local";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./vendor.css";
 import "./globals.css";
-import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
-import JQueryProvider from "@/utils/jQueryProvider";
-import Script from "next/script";
-import { IconSprite } from '@/components/utility/IconSprite';
 import ScriptsAndProviders from "@/utils/ScriptsAndProviders";
+import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import { IconSprite } from '@/components/utility/IconSprite';
 
 const dmSans = localFont({
   src: [
