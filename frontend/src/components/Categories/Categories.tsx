@@ -2,11 +2,14 @@
 
 import { dmSans } from "@/app/fonts";
 import { CATEGORIES } from "@/constants";
-import { Children, Icon, Name } from "@/types";
+import { Icon, Name } from "@/types";
+import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useRef } from "react";
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
+import styles from "./Categories.module.css";
+import { RowContainer } from "../utility/RowContainer";
 
 interface NavButton extends Icon, Name { }
 
@@ -20,18 +23,6 @@ const NAVBUTTONS: NavButton[] = [
         name: "next",
     },
 ];
-
-const RowContainer = memo(({
-    children
-}: Children) => (
-    <div className="row">
-        <div className="col-md-12">
-            {children}
-        </div>
-    </div>
-));
-
-RowContainer.displayName = "RowContainer";
 
 export const Categories = memo(() => {
     const swiperRef = useRef(null);
@@ -101,7 +92,7 @@ export const Categories = memo(() => {
                 <RowContainer>
                     <div
                         ref={swiperRef}
-                        className="category-carousel swiper"
+                        className={`swiper ${styles.categoryCarousel}`}
                     >
                         <div className="swiper-wrapper">
                             {CATEGORIES.map((category, index) => (
@@ -110,12 +101,18 @@ export const Categories = memo(() => {
                                     href="#"
                                     className="nav-link swiper-slide text-center"
                                 >
-                                    <img
+                                    <Image
                                         src={category.imgSrc}
+                                        width={300}
+                                        height={300}
                                         className="img-fluid"
                                         alt="Category Thumbnail"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto'
+                                        }}
                                     />
-                                    <h4 className={`fs-6 mt-3 fw-normal category-title ${dmSans.className}`}>{category.name}</h4>
+                                    <h4 className={`fs-6 mt-3 fw-normal ${dmSans.className} ${styles.categoryTitle}`}>{category.name}</h4>
                                 </Link>
                             ))}
                         </div>
