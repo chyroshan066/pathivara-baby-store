@@ -1,3 +1,6 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
 :root {
   --heading-font: "DM Sans", serif;
 
@@ -409,6 +412,10 @@ a.btn-link.text-light:after {
 }
 
 /* SWIPER CAROUSEL */
+.swiper-buttons {
+  display: flex;
+  gap: 0.25rem; 
+}
 .swiper-prev,
 .swiper-next {
   width: 38px;

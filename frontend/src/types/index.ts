@@ -42,7 +42,7 @@ export interface Icon {
     icon: string;
 }
 
-interface ImgSrc {
+export interface ImgSrc {
     imgSrc: string;
 }
 
@@ -51,3 +51,4 @@ interface Href {
 }
 
 export interface NavLink extends Name, Href {}
+export interface Category extends Name, ImgSrc {}

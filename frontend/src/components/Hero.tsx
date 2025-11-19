@@ -1,4 +1,4 @@
-import { dmSans } from "@/app/layout";
+import { dmSans } from "@/app/fonts";
 import { Icon, Text, Title } from "@/types";
 import Link from "next/link";
 import { memo } from "react";
@@ -37,7 +37,7 @@ export const Hero = memo(() => (
                             Discover </span>the latest <span className="fw-medium text-primary">fashion trends
                         </span>
                     </h2>
-                    <p className="fs-5">Whether you're looking for casual wear, formal attire, or seasonal outfits, we have something for everyone.</p>
+                    <p className="fs-5">Whether you&apos;re looking for casual wear, formal attire, or seasonal outfits, we have something for everyone.</p>
                     <div className="d-flex gap-3">
                         <Link
                             href="#"
