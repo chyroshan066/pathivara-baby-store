@@ -1,24 +1,15 @@
 import { memo } from "react";
 import { RowContainer } from "./utility/RowContainer";
+import { SectionHeader } from "./utility/SectionHeader";
 
 export const BestSelling = memo(() => (
     <section className="section-padding pt-0">
         <div className="container-lg">
 
-            <div className="row">
-                <div className="col-md-12">
-
-                    <div className="section-header d-flex flex-wrap justify-content-between mb-3">
-
-                        <h2 className="section-title text-capitalize">Best selling products</h2>
-
-                        <div className="d-flex align-items-center">
-                            <a href="#" className="btn btn-primary rounded-1">View All</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <SectionHeader
+                title="Best selling products"
+                btnText="View All"
+            />
 
             <RowContainer>
 
