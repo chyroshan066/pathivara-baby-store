@@ -52,3 +52,9 @@ interface Href {
 
 export interface NavLink extends Name, Href {}
 export interface Category extends Name, ImgSrc {}
+
+export interface Product extends Name, ImgSrc {
+    prevPrice: number;
+    discountedPrice: number;
+    discount: number;
+}
