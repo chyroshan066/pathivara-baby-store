@@ -3,15 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
 
-const OPTIONS: string[] = [
-    "All Categories",
-    "Men",
-    "Women",
-    "Kids",
-    "Sweaters",
-    "Hoodies"
-];
-
 export const Header = memo(() => {
     return (
         <header>

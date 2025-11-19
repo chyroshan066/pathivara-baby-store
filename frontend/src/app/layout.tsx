@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./vendor.css";
@@ -7,7 +7,7 @@ import ScriptsAndProviders from "@/utils/ScriptsAndProviders";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import { IconSprite } from '@/components/utility/IconSprite';
 
-const dmSans = localFont({
+export const dmSans = localFont({
   src: [
     {
       path: "../../public/fonts/dm-sans/DM-Sans-100.woff2",
@@ -300,11 +300,12 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   applicationName: "Pathivara Baby Store",
   generator: "Next.js",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
