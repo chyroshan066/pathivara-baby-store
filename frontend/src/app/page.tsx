@@ -1,3 +1,4 @@
+import { BannerAd } from "@/components/BannerAd";
 import { BestSelling } from "@/components/BestSelling";
 import { Categories } from "@/components/Categories/Categories";
 import { Header } from "@/components/Header";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Categories />
       <BestSelling />
+      <BannerAd />
     </>
   );
 }
