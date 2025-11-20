@@ -13,7 +13,7 @@ import { SectionHeader } from "../utility/SectionHeader";
 import { SectionContainer } from "../utility/SectionContainer";
 
 export const Categories = memo(() => {
-    const swiperRef = useRef(null);
+    const swiperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (swiperRef.current) {

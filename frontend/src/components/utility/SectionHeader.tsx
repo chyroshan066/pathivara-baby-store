@@ -9,6 +9,8 @@ interface NavButton extends Icon, Name { }
 interface SectionHeaderProps extends Title {
     btnText: string;
     showNavBtn?: boolean;
+    carouselPrefix?: string;
+    btnColor?: string;
 }
 
 const NAVBUTTONS: NavButton[] = [
@@ -24,7 +26,11 @@ const NAVBUTTONS: NavButton[] = [
 
 
 export const SectionHeader = memo(({
-    title, btnText, showNavBtn = false
+    title,
+    btnText,
+    showNavBtn = false,
+    carouselPrefix = "category-carousel",
+    btnColor = "yellow"
 }: SectionHeaderProps) => (
     <RowContainer>
 
@@ -42,7 +48,7 @@ export const SectionHeader = memo(({
                     {NAVBUTTONS.map((btn, index) => (
                         <button
                             key={index}
-                            className={`swiper-${btn.name} category-carousel-${btn.name} btn btn-yellow`}>
+                            className={`swiper-${btn.name} ${carouselPrefix}-${btn.name} btn btn-${btnColor}`}>
                             {btn.icon}
                         </button>
                     ))}
