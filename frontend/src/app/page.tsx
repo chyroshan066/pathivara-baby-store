@@ -1,6 +1,7 @@
 import { BannerAd } from "@/components/BannerAd";
 import { BestSelling } from "@/components/BestSelling";
 import { Categories } from "@/components/Categories/Categories";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Preloader } from "@/components/Preloader/Preloader";
@@ -28,6 +29,7 @@ export default function Home() {
         sectionClassName="pt-0 mt-n8"
       />
       <Testimonials />
+      <Footer />
     </>
   );
 }

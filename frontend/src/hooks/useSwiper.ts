@@ -41,7 +41,7 @@ export const useSwiper = (config: SwiperOptions) => {
         }
       };
     }
-  }, []);
+  }, [config]);
 
   return swiperRef;
 };

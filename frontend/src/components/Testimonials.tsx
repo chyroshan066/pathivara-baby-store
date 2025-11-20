@@ -27,7 +27,7 @@ export const Testimonials = memo(() => {
                                 key={index}
                                 className="swiper-slide"
                             >
-                                <p className="review fw-light fs-4">"{review.text}"</p>
+                                <p className="review fw-light fs-4">&quot;{review.text}&quot;</p>
                                 <span className="fw-bold mt-3">{review.name}</span>
                             </div>
                         ))}

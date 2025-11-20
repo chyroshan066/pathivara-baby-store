@@ -50,7 +50,7 @@ interface Href {
     href: string;
 }
 
-export interface NavLink extends Name, Href {}
+export interface Link extends Name, Href {}
 export interface Category extends Name, ImgSrc {}
 
 export interface Product extends Name, ImgSrc {

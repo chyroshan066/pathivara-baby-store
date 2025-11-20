@@ -13,7 +13,7 @@ export const Header = memo(() => {
                         <div className="d-flex align-items-center">
                             <Link href="/">
                                 <Image
-                                    src="/images/logo.svg"
+                                    src="/images/logo/logo.svg"
                                     alt="logo"
                                     width={150}
                                     height={40}
