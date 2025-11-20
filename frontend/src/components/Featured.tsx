@@ -1,49 +1,18 @@
 "use client";
 
-import { memo, useEffect, useRef } from "react";
+import { memo } from "react";
 import { RowContainer } from "./utility/RowContainer";
 import { SectionHeader } from "./utility/SectionHeader";
 import { FEATURED_PRODUCTS } from "@/constants";
 import { Card } from "./utility/Card";
-import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { useSwiper } from "@/hooks/useSwiper";
+import { SWIPER_PRESETS } from "@/utils/SwiperPresets";
 
 export const Featured = memo(() => {
-    const swiperRef = useRef<HTMLDivElement>(null);
+    const swiperRef = useSwiper({
+        ...SWIPER_PRESETS.products
+    });
 
-    useEffect(() => {
-        if (swiperRef.current) {
-            // Initialize Swiper with exact config from script.js
-            const productsSwiper = new Swiper(swiperRef.current, {
-                modules: [Navigation],
-                slidesPerView: 5,
-                spaceBetween: 30,
-                speed: 500,
-                navigation: {
-                    nextEl: ".products-carousel-next",
-                    prevEl: ".products-carousel-prev",
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                    },
-                    991: {
-                        slidesPerView: 4,
-                    },
-                }
-            });
-
-            // Cleanup on unmount
-            return () => {
-                if (productsSwiper) {
-                    productsSwiper.destroy(true, true);
-                }
-            };
-        }
-    }, []);
 
     return (
         <section
