@@ -103,3 +103,41 @@ export const FEATURED_PRODUCTS: Product[] = [
         discount: 10,
     },
 ];
+
+export const POPULAR_PRODUCTS: Product[] = [
+    {
+        name: "Product Item Name",
+        imgSrc: "/images/popular/product-thumb-15.jpg",
+        prevPrice: 24.00,
+        discountedPrice: 18.00,
+        discount: 10,
+    },
+    {
+        name: "Product Item Name",
+        imgSrc: "/images/popular/product-thumb-16.jpg",
+        prevPrice: 24.00,
+        discountedPrice: 18.00,
+        discount: 10,
+    },
+    {
+        name: "Product Item Name",
+        imgSrc: "/images/popular/product-thumb-17.jpg",
+        prevPrice: 24.00,
+        discountedPrice: 18.00,
+        discount: 10,
+    },
+    {
+        name: "Product Item Name",
+        imgSrc: "/images/popular/product-thumb-18.jpg",
+        prevPrice: 24.00,
+        discountedPrice: 18.00,
+        discount: 10,
+    },
+    {
+        name: "Product Item Name",
+        imgSrc: "/images/popular/product-thumb-19.jpg",
+        prevPrice: 24.00,
+        discountedPrice: 18.00,
+        discount: 10,
+    },
+];

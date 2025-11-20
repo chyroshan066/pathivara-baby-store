@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination  } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
 
 /**
@@ -29,7 +29,8 @@ export const useSwiper = (config: SwiperOptions) => {
     if (swiperRef.current) {
       // Initialize Swiper with Navigation module and provided config
       swiperInstanceRef.current = new Swiper(swiperRef.current, {
-        modules: [Navigation],
+        modules: [Navigation, Pagination ],
+        spaceBetween: 30,
         ...config, 
       });
 

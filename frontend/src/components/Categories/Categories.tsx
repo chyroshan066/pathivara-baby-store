@@ -22,7 +22,6 @@ export const Categories = memo(() => {
 
             <SectionHeader
                 title="Category"
-                btnText="View All"
                 showNavBtn={true}
             />
 

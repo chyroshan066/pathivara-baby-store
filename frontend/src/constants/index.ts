@@ -2,3 +2,4 @@
 export * from "./navlinks";
 export * from "./categories";
 export * from "./products";
+export * from "./testimonials";

@@ -1,31 +1,42 @@
 "use client";
 
-import { memo } from "react";
+import { memo, useId } from "react";
 import { RowContainer } from "./utility/RowContainer";
 import { SectionHeader } from "./utility/SectionHeader";
-import { FEATURED_PRODUCTS } from "@/constants";
-import { Card } from "./utility/Card";
+import { ProductCard } from "./utility/ProductCard/ProductCard";
 import { useSwiper } from "@/hooks/useSwiper";
 import { SWIPER_PRESETS } from "@/utils/SwiperPresets";
+import { Product, Title } from "@/types";
 
-export const Featured = memo(() => {
+interface ProductsProps extends Title {
+    sectionClassName?: string;
+    productArray: Product[];
+
+}
+
+export const Products = memo(({
+    title, sectionClassName, productArray
+}: ProductsProps) => {
+    const uniqueId = useId().replace(/:/g, '-');
+    const carouselPrefix = `products-carousel-${uniqueId}`;
+
     const swiperRef = useSwiper({
-        ...SWIPER_PRESETS.products
+        ...SWIPER_PRESETS.products,
+        navigation: {
+            nextEl: `.${carouselPrefix}-next`,
+            prevEl: `.${carouselPrefix}-prev`,
+        }
     });
 
 
     return (
-        <section
-            id="featured-products"
-            className="section-padding pt-0 products-carousel"
-        >
+        <section className={`section-padding products-carousel ${sectionClassName || ''}`}>
             <div className="container-lg overflow-hidden py-5">
 
                 <SectionHeader
-                    title="Featured products"
-                    btnText="View All"
+                    title={title}
                     showNavBtn={true}
-                    carouselPrefix="products-carousel"
+                    carouselPrefix={carouselPrefix}
                     btnColor="primary"
                 />
 
@@ -37,8 +48,8 @@ export const Featured = memo(() => {
                     >
                         <div className="swiper-wrapper">
 
-                            {FEATURED_PRODUCTS.map((product, index) => (
-                                <Card
+                            {productArray.map((product, index) => (
+                                <ProductCard
                                     key={index}
                                     product={product}
                                     outerDivClassName="swiper-slide"
@@ -54,4 +65,4 @@ export const Featured = memo(() => {
     )
 });
 
-Featured.displayName = "Featured";
+Products.displayName = "Products";

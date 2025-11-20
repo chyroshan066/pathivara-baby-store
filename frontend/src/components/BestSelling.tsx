@@ -3,15 +3,12 @@ import { RowContainer } from "./utility/RowContainer";
 import { SectionHeader } from "./utility/SectionHeader";
 import { BEST_SELLING } from "@/constants/products";
 import { SectionContainer } from "./utility/SectionContainer";
-import { Card } from "./utility/Card";
+import { ProductCard } from "./utility/ProductCard/ProductCard";
 
 export const BestSelling = memo(() => (
     <SectionContainer>
 
-        <SectionHeader
-            title="Best selling products"
-            btnText="View All"
-        />
+        <SectionHeader title="Best selling products" />
 
         <RowContainer>
 
@@ -22,7 +19,7 @@ export const BestSelling = memo(() => (
                         key={index}
                         className="col"
                     >
-                        <Card product={product} />
+                        <ProductCard product={product} />
                     </div>
                 ))}
 

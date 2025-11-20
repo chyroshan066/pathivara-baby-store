@@ -1,12 +1,7 @@
 export const SWIPER_PRESETS = {
   products: {
     slidesPerView: 5,
-    spaceBetween: 30,
     speed: 500,
-    navigation: {
-                    nextEl: ".products-carousel-next",
-                    prevEl: ".products-carousel-prev",
-                },
     breakpoints: {
       0: {
         slidesPerView: 1,
@@ -20,15 +15,13 @@ export const SWIPER_PRESETS = {
     }
   },
   
-  // Category carousel configuration
   category: {
     slidesPerView: 3,
-    spaceBetween: 30,
     speed: 500,
     navigation: {
-                    nextEl: ".category-carousel-next",
-                    prevEl: ".category-carousel-prev",
-                },
+      nextEl: ".category-carousel-next",
+      prevEl: ".category-carousel-prev",
+    },
     breakpoints: {
       0: {
         slidesPerView: 1,
@@ -42,20 +35,24 @@ export const SWIPER_PRESETS = {
     }
   },
   
-  // Testimonial carousel configuration
-//   testimonial: {
-//     slidesPerView: 3,
-//     spaceBetween: 30,
-//     breakpoints: {
-//       0: {
-//         slidesPerView: 1,
-//       },
-//       572: {
-//         slidesPerView: 2,
-//       },
-//       1024: {
-//         slidesPerView: 3,
-//       },
-//     }
-//   }
+  testimonial: {
+    pagination: {
+      el: ".testimonial-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      572: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      1280: {
+        slidesPerView: 3,
+      },
+    }
+  }
 } as const;

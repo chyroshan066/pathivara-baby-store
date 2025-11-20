@@ -1,0 +1,13 @@
+.productItem {
+  position: relative;
+  padding: 14px;
+  background: #FFFFFF;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0);
+}
+.productItem:hover {
+  box-shadow: 0px 0px 44px rgba(0, 0, 0, 0.08);
+}
+.productItem figure {
+  text-align: center;
+}

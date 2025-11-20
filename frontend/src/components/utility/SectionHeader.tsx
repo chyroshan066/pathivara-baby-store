@@ -7,7 +7,6 @@ import { Icon, Name, Title } from "@/types";
 interface NavButton extends Icon, Name { }
 
 interface SectionHeaderProps extends Title {
-    btnText: string;
     showNavBtn?: boolean;
     carouselPrefix?: string;
     btnColor?: string;
@@ -27,7 +26,6 @@ const NAVBUTTONS: NavButton[] = [
 
 export const SectionHeader = memo(({
     title,
-    btnText,
     showNavBtn = false,
     carouselPrefix = "category-carousel",
     btnColor = "yellow"
@@ -41,7 +39,7 @@ export const SectionHeader = memo(({
                     href="#"
                     className="btn btn-primary me-2"
                 >
-                    {btnText}
+                    View All
                 </Link>
 
                 {showNavBtn && (<div className="swiper-buttons">

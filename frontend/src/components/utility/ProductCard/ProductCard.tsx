@@ -3,18 +3,19 @@ import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
+import styles from "./ProductCard.module.css";
 
-interface CardProps {
+interface ProductCardProps {
     product: Product;
     outerDivClassName?: string;
 }
 
-export const Card = memo(({
+export const ProductCard = memo(({
     product, outerDivClassName
-}: CardProps) => {
+}: ProductCardProps) => {
     const { imgSrc, name, prevPrice, discountedPrice, discount } = product;
     return (
-        <div className={`product-item mb-4 ${outerDivClassName}`}>
+        <div className={`mb-4 ${styles.productItem} ${outerDivClassName}`}>
             <figure>
                 <Link
                     href="#"
@@ -45,4 +46,4 @@ export const Card = memo(({
     )
 });
 
-Card.displayName = "Card";
+ProductCard.displayName = "ProductCard";
