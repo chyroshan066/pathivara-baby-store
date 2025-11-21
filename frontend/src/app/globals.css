@@ -409,6 +409,9 @@ a.btn-link.text-light:after {
 .mt-n8 {
   margin-top: -7.5rem !important;
 }
+.mt-n11 {
+  margin-top: -12.5rem !important;
+}
 
 /* FLOATING IMAGE */
 .image-float {

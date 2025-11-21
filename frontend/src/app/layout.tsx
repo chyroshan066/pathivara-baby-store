@@ -6,6 +6,9 @@ import ScriptsAndProviders from "@/utils/ScriptsAndProviders";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import { IconSprite } from '@/components/utility/IconSprite';
 import { dmSans, inter } from "./fonts";
+import { Preloader } from "@/components/Preloader/Preloader";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Pathivara Baby Store - Everything Your Little One Needs | Baby Products in Itahari",
@@ -153,7 +156,10 @@ export default function RootLayout({
       >
         <ScriptsAndProviders>
           <IconSprite />
+          <Preloader />
+          <Header />
           {children}
+          <Footer />
         </ScriptsAndProviders>
         <AnalyticsWrapper />
       </body>

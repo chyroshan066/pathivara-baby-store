@@ -1,10 +1,7 @@
 import { BannerAd } from "@/components/BannerAd";
 import { BestSelling } from "@/components/BestSelling";
 import { Categories } from "@/components/Categories/Categories";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Preloader } from "@/components/Preloader/Preloader";
 import { Products } from "@/components/Products";
 import { Testimonials } from "@/components/Testimonials";
 import { FEATURED_PRODUCTS, POPULAR_PRODUCTS } from "@/constants";
@@ -12,8 +9,6 @@ import { FEATURED_PRODUCTS, POPULAR_PRODUCTS } from "@/constants";
 export default function Home() {
   return (
     <>
-      <Preloader />
-      <Header />
       <Hero />
       <Categories />
       <BestSelling />
@@ -29,7 +24,6 @@ export default function Home() {
         sectionClassName="pt-0 mt-n8"
       />
       <Testimonials />
-      <Footer />
     </>
   );
 }

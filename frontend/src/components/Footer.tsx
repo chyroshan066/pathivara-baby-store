@@ -1,3 +1,4 @@
+import { dmSans } from "@/app/fonts";
 import { NAVLINKS } from "@/constants";
 import { SOCIALLINKS } from "@/constants/social-links";
 import Image from "next/image";
@@ -43,7 +44,7 @@ export const Footer = memo(() => {
 
                         <div className="col-lg-2 col-md-6 col-sm-6 mb-4 mb-lg-0">
                             <div className="footer-menu">
-                                <h5 className="widget-title text-light">Quick Links</h5>
+                                <h5 className={`widget-title text-light ${dmSans.className}`}>Quick Links</h5>
                                 <ul className="menu-list list-unstyled">
                                     {NAVLINKS.map((link, index) => (
                                         <li
@@ -64,7 +65,7 @@ export const Footer = memo(() => {
 
                         <div className="col-lg-4 col-md-6 col-sm-6 mb-4 mb-lg-0">
                             <div className="footer-menu">
-                                <h5 className="widget-title text-light">Subscribe Us</h5>
+                                <h5 className={`widget-title text-light ${dmSans.className}`}>Subscribe Us</h5>
                                 <p>Subscribe to our newsletter to get updates about our grand offers.</p>
                                 <form className="d-flex mt-3 gap-0" action="index.html">
                                     <input className="form-control rounded-start rounded-0 bg-light" type="email" placeholder="Email Address" aria-label="Email Address" />
