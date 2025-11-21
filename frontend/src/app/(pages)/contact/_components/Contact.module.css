@@ -1,0 +1,12 @@
+.socialLinkHover {
+    transition: all 0.3s ease;
+}
+.socialLinkHover:hover {
+    background-color: #222 !important;
+    border-color: #222 !important;
+    color: #fff !important;
+}
+.socialLinkHover:hover svg {
+    color: #fff;
+    fill: currentColor;
+}

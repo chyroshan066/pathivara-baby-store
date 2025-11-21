@@ -406,6 +406,9 @@ a.btn-link.text-light:after {
 .fs-7 {
   font-size: 0.8rem!important;
 }
+.mb-n1 {
+  margin-bottom: -0.75rem !important;
+}
 .mt-n8 {
   margin-top: -7.5rem !important;
 }
