@@ -1,6 +1,7 @@
+import { ClassName } from "@/types";
 import { memo } from "react";
 
-interface SubmitButtonProps {
+interface SubmitButtonProps extends ClassName {
     isButtonDisabled?: boolean;
     btnText: string;
 }
@@ -8,10 +9,11 @@ interface SubmitButtonProps {
 export const SubmitButton = memo(({
     isButtonDisabled = false,
     btnText,
+    className = "w-100 py-3 text-uppercase"
 }: SubmitButtonProps) => (
     <button
         type="submit"
-        className={`btn btn-primary w-100 py-3 text-uppercase`}
+        className={`btn btn-primary ${className}`}
         style={{ letterSpacing: '2px' }}
         disabled={isButtonDisabled}
     >

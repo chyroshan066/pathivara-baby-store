@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Contact } from "./_components/Contact";
+import { baseURL } from "@/constants";
 
 export const metadata: Metadata = {
     title: "Contact Us - Pathivara Baby Store | Get in Touch",
@@ -14,8 +15,15 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact Us - Pathivara Baby Store",
         description: "Get in touch with Pathivara Baby Store for any assistance or queries.",
-        type: "website",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+        url: `${baseURL}/contact`,
+        images: [
+            {
+                url: `${baseURL}/images/preview.webp`,
+                width: 1200,
+                height: 630,
+                alt: "Contact Pathivara Baby Store - Premium Baby Products & Essentials",
+            }
+        ],
     },
 };
 

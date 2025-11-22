@@ -1,5 +1,5 @@
+import { inter } from "@/app/fonts";
 import { NAVLINKS } from "@/constants";
-import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
 
@@ -11,15 +11,21 @@ export const Header = memo(() => {
 
                     <div className="col-12 d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center gap-3">
                         <div className="d-flex align-items-center">
-                            <Link href="/">
-                                <Image
-                                    src="/images/logo/logo.svg"
-                                    alt="logo"
-                                    width={150}
-                                    height={40}
-                                    className="img-fluid"
-                                    priority
-                                />
+                            <Link
+                                href="/"
+                                className="text-decoration-none"
+                            >
+                                <span
+                                    style={{
+                                        fontSize: '1.75rem',
+                                        fontWeight: 600,
+                                        color: '#333',
+                                        letterSpacing: '-0.02em'
+                                    }}
+                                    className={inter.className}
+                                >
+                                    Pathivara Baby Store
+                                </span>
                             </Link>
                         </div>
 

@@ -1,18 +1,19 @@
-import { BannerAd } from "@/components/BannerAd";
-import { BestSelling } from "@/components/BestSelling";
-import { Categories } from "@/components/Categories/Categories";
-import { Hero } from "@/components/Hero";
-import { Products } from "@/components/Products";
-import { Testimonials } from "@/components/Testimonials";
+import { Hero } from "@/components/Hero/Hero";
+import { Categories } from "./_components/Categories/Categories";
+// import { BestSelling } from "./_components/BestSelling";
+// import { BannerAd } from "./_components/BannerAd/BannerAd";
+import { Products } from "./_components/Products";
+import { Testimonials } from "./_components/Testimonials";
 import { FEATURED_PRODUCTS, POPULAR_PRODUCTS } from "@/constants";
+
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Categories />
-      <BestSelling />
-      <BannerAd />
+      {/* <BestSelling /> */}
+      {/* <BannerAd /> */}
       <Products
         title="Featured products"
         productArray={FEATURED_PRODUCTS}

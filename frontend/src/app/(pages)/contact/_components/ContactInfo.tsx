@@ -3,19 +3,13 @@ import { SOCIALLINKS } from "@/constants/social-links";
 import { memo } from "react";
 import styles from "./Contact.module.css";
 import { SocialIcon } from "@/components/utility/SocialIcon";
-
-const ITEMS: string[] = [
-    "730 Glenstone Ave 65802, Springfield, US",
-    "+123 987 321",
-    "+123 123 654",
-    "info@pathivarababystore.com"
-];
+import { CONTACT } from "@/constants";
 
 export const ContactInfo = memo(() => {
     return (
         <div>
             <p className="text-muted mb-4">
-                Tortor dignissim convallis aenean et tortor at risus viverra adipiscing.
+                Have questions about our baby products or need help finding the perfect item for your little one? We'd love to hear from you! Visit us at our store in Itahari Chowk or reach out using the contact form — our friendly team is here to help.
             </p>
 
             <div className="mb-5">
@@ -23,12 +17,12 @@ export const ContactInfo = memo(() => {
                     Store
                 </h4>
                 <ul className="list-unstyled">
-                    {ITEMS.map((item, itemIndex) => (
+                    {CONTACT.map((contact, index) => (
                         <li
-                            key={itemIndex}
+                            key={index}
                             className="mb-2"
                         >
-                            <a href="">{item}</a>
+                            <a href={contact.href}>{contact.text}</a>
                         </li>
                     ))}
                 </ul>

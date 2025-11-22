@@ -1,10 +1,11 @@
 "use client";
 
 import { ContactFormData } from "@/middlewares/schema";
+import { ClassName } from "@/types";
 import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
 
-interface FormFieldProps {
+interface FormFieldProps extends ClassName {
     id: keyof ContactFormData;
     placeholder?: string;
     type?: string;
@@ -51,6 +52,7 @@ export const InputField = memo((
         disabled,
         isTextarea = false,
         showError = true,
+        className = "form-control",
     }: FormFieldProps
 ) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -78,7 +80,7 @@ export const InputField = memo((
                     {...registerProps}
                     placeholder={placeholder}
                     autoComplete="off"
-                    className={`form-control`}
+                    className={className}
                     disabled={disabled}
                     onChange={handleInputChange}
                     rows={6}
@@ -92,14 +94,13 @@ export const InputField = memo((
     const registerProps = getRegisterProps();
 
     return (
-        // <div>
         <div className={showError ? "" : "d-inline-block w-100"}>
             <input
                 {...registerProps}
                 type={type}
                 placeholder={placeholder}
                 autoComplete="off"
-                className="form-control"
+                className={className}
                 onChange={handleInputChange}
                 disabled={disabled}
             />

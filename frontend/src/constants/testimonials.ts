@@ -1,18 +1,10 @@
 export const TESTIMONIALS = [
     {
-        name: "KARLINA BIAS",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate non explicabo ea possimus consequuntur vel.",
+        name: "CHANDRA KATUWAL",
+        text: "One of the best place for all kind of baby iteam avilable plz do visit🙏 …",
     },
     {
-        name: "JOHN DOE",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate non explicabo ea possimus consequuntur vel.",
-    },
-    {
-        name: "WILLIAM JACK",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate non explicabo ea possimus consequuntur vel.",
-    },
-    {
-        name: "NICHOLAS SHRESTHA",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate non explicabo ea possimus consequuntur vel.",
+        name: "NIPESH GHIMIRE",
+        text: "It’s a great place to visit if you're in the mood for some quality shopping for your little one!",
     },
 ];

@@ -6,13 +6,13 @@ export const NAVLINKS: Link[] = [
         href: "/"
     },
     {
-        name: "About Us",
+        name: "About",
         href: "/about"
     },
-    {
-        name: "Sale",
-        href: "/sale"
-    },
+    // {
+    //     name: "Product",
+    //     href: "/product"
+    // },
     {
         name: "Contact",
         href: "/contact"

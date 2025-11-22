@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { About } from "./_components/About";
+import { baseURL } from "@/constants";
 
 export const metadata: Metadata = {
     title: "About Us - Pathivara Baby Store",
@@ -12,10 +13,21 @@ export const metadata: Metadata = {
         "quality baby items",
         "trusted baby store",
     ],
+    alternates: {
+        canonical: "/about",
+    },
     openGraph: {
         title: "About Us - Pathivara Baby Store",
         description: "Learn more about Pathivara Baby Store and our commitment to providing quality baby products.",
-        type: "website",
+        url: `${baseURL}/about`,
+        images: [
+            {
+                url: `${baseURL}/images/preview.webp`,
+                width: 1200,
+                height: 630,
+                alt: "Pathivara Baby Store Team - Premium Baby Products & Essentials",
+            }
+        ],
     },
 };
 

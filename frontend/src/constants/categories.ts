@@ -2,23 +2,19 @@ import { Category } from "@/types";
 
 export const CATEGORIES: Category[] = [
     {
-        name: "Hoodies",
-        imgSrc: "/images/categories/category-thumb-1.jpg",
+        name: "Baby Clothes",
+        imgSrc: "/images/categories/category-1.webp",
     },
     {
-        name: "Sweaters",
-        imgSrc: "/images/categories/category-thumb-2.jpg",
+        name: "Hospital Bags",
+        imgSrc: "/images/categories/category-3.webp",
     },
     {
-        name: "Kids",
-        imgSrc: "/images/categories/category-thumb-3.jpg",
+        name: "Diapers",
+        imgSrc: "/images/categories/category-2.webp",
     },
     {
-        name: "Denim",
-        imgSrc: "/images/categories/category-thumb-4.jpg",
-    },
-    {
-        name: "T-shirts",
-        imgSrc: "/images/categories/category-thumb-5.jpg",
+        name: "Baby Essentials",
+        imgSrc: "/images/categories/category-4.webp",
     },
 ];

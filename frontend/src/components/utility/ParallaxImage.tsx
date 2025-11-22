@@ -41,7 +41,7 @@ export const ParallaxImage = memo(({
             ref={heroRef}
             className="position-relative"
             style={{
-                backgroundImage: "url('/images/banner-1.jpg')",
+                backgroundImage: "url('/images/hero.webp')",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundPosition: "center",

@@ -1,6 +1,7 @@
 "use client";
 
 import { dmSans } from "@/app/fonts";
+import { Alert } from "@/components/Alert";
 import { InputField } from "@/components/utility/InputField";
 import { SubmitButton } from "@/components/utility/SubmitButton";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
@@ -80,6 +81,17 @@ export const ContactForm = memo(() => {
 
     return (
         <>
+            <Alert
+                type={alertState.type}
+                title={alertState.title}
+                message={alertState.message}
+                isVisible={alertState.isVisible}
+                onDismiss={hideAlert}
+                autoDismiss={true}
+                autoDismissDelay={6000}
+                className="sm:max-w-md"
+            />
+
             <h3 className={`fs-2 fw-bold mb-2 ${dmSans.className}`}>
                 Get in Touch
             </h3>
