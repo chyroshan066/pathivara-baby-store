@@ -1,9 +1,45 @@
 "use client";
 
 import { dmSans } from "@/app/fonts";
-import { memo } from "react";
+import { InputField } from "@/components/utility/InputField";
+import { useFormSubmission } from "@/hooks/useFormSubmission";
+import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
+import { onSubmit } from "@/utils/contactData";
+import { memo, useMemo } from "react";
+
+const initialValues: ContactFormData = {
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+};
 
 export const ContactForm = memo(() => {
+    const {
+        register,
+        formState: {
+            errors,
+            isSubmitting
+        },
+        onFormSubmit,
+        isButtonDisabled,
+        alertState,
+        hideAlert,
+    } = useFormSubmission<ContactFormData>({
+        schema: ContactFormSchema,
+        defaultValues: initialValues,
+        onSubmit: onSubmit,
+        successMessage: "Thank you! Your message has been sent. We look forward to serving you.",
+        successTitle: "Message Sent!",
+        errorTitle: "Sending Failed",
+        errorMessage: "Something went wrong while sending your message. Please try again.",
+    });
+
+    const buttonText = useMemo(
+        () => isSubmitting ? "Sending..." : "Send Message",
+        [isSubmitting]
+    );
 
     return (
         <>
@@ -15,71 +51,64 @@ export const ContactForm = memo(() => {
             </p>
 
             <form
-            // onSubmit={handleSubmit}
+                onSubmit={onFormSubmit}
+                noValidate
             >
                 <div className="row g-3">
                     {/* Name Field */}
                     <div className="col-md-6">
-                        <input
-                            type="text"
-                            name="name"
-                            className="form-control"
-                            placeholder="Write Your Name Here"
-                            // value={formData.name}
-                            // onChange={handleChange}
-                            required
+                        <InputField
+                            id="name"
+                            placeholder="Your Name"
+                            register={register("name")}
+                            error={errors.name?.message}
+                            disabled={isSubmitting}
                         />
                     </div>
 
                     {/* Email Field */}
                     <div className="col-md-6">
-                        <input
-                            type="email"
-                            name="email"
-                            className="form-control"
+                        <InputField
+                            id="email"
                             placeholder="Write Your Email Here"
-                            // value={formData.email}
-                            // onChange={handleChange}
-                            required
+                            register={register("email")}
+                            error={errors.email?.message}
+                            disabled={isSubmitting}
                         />
                     </div>
 
                     {/* Phone Number */}
                     <div className="col-md-12">
-                        <input
+                        <InputField
+                            id="phone"
                             type="tel"
-                            name="phone"
-                            className="form-control"
                             placeholder="Phone Number"
-                        // value={formData.phone}
-                        // onChange={handleChange}
+                            register={register("phone")}
+                            error={errors.phone?.message}
+                            disabled={isSubmitting}
                         />
                     </div>
 
                     {/* Subject */}
                     <div className="col-md-12">
-                        <input
-                            type="text"
-                            name="subject"
-                            className="form-control"
+                        <InputField
+                            id="subject"
                             placeholder="Write Your Subject Here"
-                            // value={formData.subject}
-                            // onChange={handleChange}
-                            required
+                            register={register("subject")}
+                            error={errors.subject?.message}
+                            disabled={isSubmitting}
                         />
                     </div>
 
                     {/* Message */}
                     <div className="col-12">
-                        <textarea
-                            name="message"
-                            className="form-control"
-                            style={{ resize: 'none' }}
-                            rows={6}
+                        <InputField
+                            id="message"
                             placeholder="Write Your Message Here"
-                            // value={formData.message}
-                            // onChange={handleChange}
-                            required
+                            register={register("message")}
+                            isTextarea={true}
+                            error={errors.message?.message}
+                            disabled={isSubmitting}
                         />
                     </div>
 

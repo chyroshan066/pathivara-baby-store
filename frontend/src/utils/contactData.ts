@@ -4,6 +4,7 @@ interface Reservation extends Record<string, unknown>  {
     name: string;
     email: string;
     phone: string;
+    subject: string;
     message: string;
 }
 
@@ -25,6 +26,7 @@ export const onSubmit = async (data: Reservation) => {
             name: data.name,
             phone: data.phone,
             email: data.email,
+            subject: data.subject,
             message: data.message,
             timeStamp: new Date().toLocaleString(),
         };
