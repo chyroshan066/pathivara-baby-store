@@ -1,7 +1,6 @@
 "use client";
 
 import { ContactFormData } from "@/middlewares/schema";
-import { ClassName } from "@/types";
 import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
 
@@ -74,7 +73,6 @@ export const InputField = memo((
         const registerProps = getRegisterProps();
 
         return (
-            // <div>
             <div className={showError ? "" : "d-inline-block w-100"}>
                 <textarea
                     {...registerProps}
@@ -104,7 +102,6 @@ export const InputField = memo((
                 className="form-control"
                 onChange={handleInputChange}
                 disabled={disabled}
-            // style={{ height: "55px" }}
             />
             {showError && error && <ErrorMessage message={error} />}
         </div>

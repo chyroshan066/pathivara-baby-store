@@ -2,10 +2,47 @@
 
 import { dmSans } from "@/app/fonts";
 import { InputField } from "@/components/utility/InputField";
+import { SubmitButton } from "@/components/utility/SubmitButton";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
 import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
 import { onSubmit } from "@/utils/contactData";
 import { memo, useMemo } from "react";
+
+interface Field {
+    id: "name" | "email" | "phone" | "subject" | "message";
+    placeholder: string;
+}
+
+const FIELDS: Field[] = [
+    {
+        id: "name",
+        placeholder: "Your Name",
+    },
+    {
+        id: "email",
+        placeholder: "Write Your Email Here",
+    },
+    {
+        id: "phone",
+        placeholder: "Phone Number",
+    },
+    {
+        id: "subject",
+        placeholder: "Write Your Subject Here",
+    },
+    {
+        id: "message",
+        placeholder: "Write Your Message Here",
+    },
+];
+
+const getColClass = (id: string) => {
+    if (id === "message") return "col-12";
+
+    if (id === "name" || id === "email") return "col-md-6";
+
+    return "col-md-12";
+};
 
 const initialValues: ContactFormData = {
     name: "",
@@ -37,7 +74,7 @@ export const ContactForm = memo(() => {
     });
 
     const buttonText = useMemo(
-        () => isSubmitting ? "Sending..." : "Send Message",
+        () => isSubmitting ? "Submitting..." : "Submit",
         [isSubmitting]
     );
 
@@ -55,72 +92,30 @@ export const ContactForm = memo(() => {
                 noValidate
             >
                 <div className="row g-3">
-                    {/* Name Field */}
-                    <div className="col-md-6">
-                        <InputField
-                            id="name"
-                            placeholder="Your Name"
-                            register={register("name")}
-                            error={errors.name?.message}
-                            disabled={isSubmitting}
-                        />
-                    </div>
 
-                    {/* Email Field */}
-                    <div className="col-md-6">
-                        <InputField
-                            id="email"
-                            placeholder="Write Your Email Here"
-                            register={register("email")}
-                            error={errors.email?.message}
-                            disabled={isSubmitting}
-                        />
-                    </div>
-
-                    {/* Phone Number */}
-                    <div className="col-md-12">
-                        <InputField
-                            id="phone"
-                            type="tel"
-                            placeholder="Phone Number"
-                            register={register("phone")}
-                            error={errors.phone?.message}
-                            disabled={isSubmitting}
-                        />
-                    </div>
-
-                    {/* Subject */}
-                    <div className="col-md-12">
-                        <InputField
-                            id="subject"
-                            placeholder="Write Your Subject Here"
-                            register={register("subject")}
-                            error={errors.subject?.message}
-                            disabled={isSubmitting}
-                        />
-                    </div>
-
-                    {/* Message */}
-                    <div className="col-12">
-                        <InputField
-                            id="message"
-                            placeholder="Write Your Message Here"
-                            register={register("message")}
-                            isTextarea={true}
-                            error={errors.message?.message}
-                            disabled={isSubmitting}
-                        />
-                    </div>
+                    {FIELDS.map((field, index) => (
+                        <div
+                            key={index}
+                            className={getColClass(field.id)}
+                        >
+                            <InputField
+                                id={field.id}
+                                type={field.id === "phone" ? "tel" : "text"}
+                                placeholder={field.placeholder}
+                                register={register(field.id)}
+                                isTextarea={field.id === "message" ? true : false}
+                                error={errors[field.id]?.message}
+                                disabled={isSubmitting}
+                            />
+                        </div>
+                    ))}
 
                     {/* Submit Button */}
                     <div className="col-12">
-                        <button
-                            type="submit"
-                            className="btn btn-primary w-100 py-3 text-uppercase"
-                            style={{ letterSpacing: '2px' }}
-                        >
-                            Submit
-                        </button>
+                        <SubmitButton
+                            isButtonDisabled={isButtonDisabled}
+                            btnText={buttonText}
+                        />
                     </div>
                 </div>
             </form>
