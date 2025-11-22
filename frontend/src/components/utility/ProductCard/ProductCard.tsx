@@ -1,7 +1,6 @@
 import { dmSans } from "@/app/fonts";
 import { Product } from "@/types";
 import Image from "next/image";
-import Link from "next/link";
 import { memo } from "react";
 import styles from "./ProductCard.module.css";
 
