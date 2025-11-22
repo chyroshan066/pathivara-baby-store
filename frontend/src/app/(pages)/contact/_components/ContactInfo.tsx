@@ -9,7 +9,7 @@ export const ContactInfo = memo(() => {
     return (
         <div>
             <p className="text-muted mb-4">
-                Have questions about our baby products or need help finding the perfect item for your little one? We'd love to hear from you! Visit us at our store in Itahari Chowk or reach out using the contact form — our friendly team is here to help.
+                Have questions about our baby products or need help finding the perfect item for your little one? We&apos;d love to hear from you! Visit us at our store in Itahari Chowk or reach out using the contact form — our friendly team is here to help.
             </p>
 
             <div className="mb-5">

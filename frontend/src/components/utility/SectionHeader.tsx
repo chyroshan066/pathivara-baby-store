@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { RowContainer } from "./RowContainer";
 import { dmSans } from "@/app/fonts";
-import Link from "next/link";
+// import Link from "next/link";
 import { Icon, Name, Title } from "@/types";
 
 interface NavButton extends Icon, Name { }

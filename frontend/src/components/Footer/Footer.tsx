@@ -3,7 +3,6 @@
 import { dmSans, inter } from "@/app/fonts";
 import { NAVLINKS } from "@/constants";
 import { SOCIALLINKS } from "@/constants/social-links";
-import Image from "next/image";
 import Link from "next/link";
 import { memo, useMemo } from "react";
 import { SocialIcon } from "../utility/SocialIcon";
@@ -64,12 +63,6 @@ export const Footer = memo(() => {
 
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mb-lg-0">
                             <div className="footer-menu">
-                                {/* <Image
-                                    src="/images/logo/logo-white.svg"
-                                    width={240}
-                                    height={70}
-                                    alt="logo"
-                                /> */}
                                 <Link
                                     href="/"
                                     className="text-decoration-none"

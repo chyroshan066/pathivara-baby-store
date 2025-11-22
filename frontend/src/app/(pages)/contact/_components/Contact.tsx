@@ -1,4 +1,3 @@
-import { dmSans } from "@/app/fonts";
 import { RowContainer } from "@/components/utility/RowContainer";
 import { SectionContainer } from "@/components/utility/SectionContainer";
 import { memo } from "react";
