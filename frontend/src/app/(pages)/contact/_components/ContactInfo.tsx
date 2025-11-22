@@ -2,6 +2,7 @@ import { dmSans } from "@/app/fonts";
 import { SOCIALLINKS } from "@/constants/social-links";
 import { memo } from "react";
 import styles from "./Contact.module.css";
+import { SocialIcon } from "@/components/utility/SocialIcon";
 
 const ITEMS: string[] = [
     "730 Glenstone Ave 65802, Springfield, US",
@@ -43,17 +44,13 @@ export const ContactInfo = memo(() => {
                                 className={`btn btn-outline-light border-secondary text-dark ${styles.socialLinkHover}`}
                                 aria-label={link.name}
                             >
-                                <svg
-                                    width="16"
-                                    height="16"
-                                >
-                                    <use xlinkHref={`#${link.name}`} />
-                                </svg>
+                                <SocialIcon icon={link.name} />
                             </a>
                         </li>
                     ))}
                 </ul>
             </div>
+
         </div>
     );
 });

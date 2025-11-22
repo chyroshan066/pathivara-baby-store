@@ -4,6 +4,7 @@ import { SOCIALLINKS } from "@/constants/social-links";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
+import { SocialIcon } from "./utility/SocialIcon";
 
 export const Footer = memo(() => {
     return (
@@ -20,6 +21,7 @@ export const Footer = memo(() => {
                                     height={70}
                                     alt="logo"
                                 />
+
                                 <div className="social-links mt-3">
                                     <ul className="d-flex list-unstyled gap-2">
                                         {SOCIALLINKS.map((link, index) => (
@@ -28,17 +30,13 @@ export const Footer = memo(() => {
                                                     href={link.href}
                                                     className="btn btn-outline-light"
                                                 >
-                                                    <svg
-                                                        width="16"
-                                                        height="16"
-                                                    >
-                                                        <use xlinkHref={`#${link.name}`} />
-                                                    </svg>
+                                                    <SocialIcon icon={link.name} />
                                                 </a>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
 
