@@ -41,7 +41,7 @@ export const Hero = memo(() => (
                     <p className="fs-5">From adorable outfits to hospital bag must-haves, we have everything your little one needs.</p>
                     <div className="d-flex gap-3">
                         <Link
-                            href="#"
+                            href="#category"
                             className="btn btn-dark text-uppercase fs-6 rounded-pill px-5 py-4 mt-3"
                         >
                             View Products

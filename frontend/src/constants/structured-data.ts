@@ -67,7 +67,7 @@ interface BabyStoreStructuredData extends Name, Description, Email, Context {
   image: string;
   address: PostalAddress;
   telephone: string[];
-  openingHoursSpecification: OpeningHoursSpecification[];
+  openingHoursSpecification: OpeningHoursSpecification;
   priceRange: string;
   aggregateRating: AggregateRating;
   geo: GeoCoordinates;
@@ -116,20 +116,12 @@ export const babyStoreStructuredData: BabyStoreStructuredData = {
     "longitude": "87.27428"
   },
 
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday"],
-      "opens": "10:00",
-      "closes": "18:00"
-    }
-  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "07:00",
+    "closes": "20:00"
+  },
 
   "priceRange": "$$",
   "paymentAccepted": ["Cash", "eSewa", "Khalti"],

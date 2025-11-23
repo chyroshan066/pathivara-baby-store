@@ -53,7 +53,6 @@ interface Href {
 export interface Link extends Name, Href {}
 export interface Category extends Name, ImgSrc {}
 export interface Contact extends Text, Href {}
-
 export interface Product extends Name, ImgSrc {
     // prevPrice: number;
     // discountedPrice: number;

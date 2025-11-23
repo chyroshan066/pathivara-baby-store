@@ -53,7 +53,10 @@ export const Categories = memo(() => {
     }, [modalOpen, closeModal]);
 
     return (
-        <SectionContainer sectionClassName="overflow-hidden">
+        <SectionContainer
+            id="category"
+            sectionClassName="overflow-hidden"
+        >
             <SectionHeader title="Category" showNavBtn={true} />
 
             <RowContainer>
