@@ -87,6 +87,7 @@ export const Footer = memo(() => {
                                                 <a
                                                     href={link.href}
                                                     className="btn btn-outline-light"
+                                                    target="_blank"
                                                 >
                                                     <SocialIcon icon={link.name} />
                                                 </a>

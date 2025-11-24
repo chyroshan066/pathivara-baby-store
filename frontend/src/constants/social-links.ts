@@ -7,6 +7,6 @@ export const SOCIALLINKS: Link[] = [
     },
     {
         name: "tiktok",
-        href: "#",
+        href: "https://www.tiktok.com/@pathivara_babystore?_r=1&_t=ZS-91YWdqC85Lg",
     },
 ];

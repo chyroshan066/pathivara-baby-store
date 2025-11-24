@@ -22,7 +22,12 @@ export const ContactInfo = memo(() => {
                             key={index}
                             className="mb-2"
                         >
-                            <a href={contact.href}>{contact.text}</a>
+                            <a
+                                href={contact.href}
+                                target="_blank"
+                            >
+                                {contact.text}
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -37,6 +42,7 @@ export const ContactInfo = memo(() => {
                                 href={link.href}
                                 className={`btn btn-outline-light border-secondary text-dark ${styles.socialLinkHover}`}
                                 aria-label={link.name}
+                                target="_blank"
                             >
                                 <SocialIcon icon={link.name} />
                             </a>

@@ -1,7 +1,6 @@
 "use client";
 
 import { memo, useCallback, useEffect, useState } from "react";
-// import { Icon } from "@iconify/react";
 
 type AlertType = "success" | "error";
 
@@ -18,20 +17,20 @@ type AlertProps = {
 
 const alertStyles = {
     success: {
-        container: "bg-gray-100 border-l-4 border-[#111] backdrop-blur-sm",
-        icon: "text-[#111]",
-        title: "text-[#111]",
-        message: "text-[#555]",
-        closeButton: "text-[#555] hover:text-[#111] hover:bg-gray-200 rounded-full",
-        name: "carbon:checkmark-outline",
+        container: "bg-light border-start border-5 border-dark",
+        icon: "text-dark",
+        title: "text-dark fw-semibold",
+        message: "text-secondary",
+        closeButton: "text-secondary",
+        iconName: "check",
     },
     error: {
-        container: "bg-red-50 border-l-4 border-red-600 backdrop-blur-sm",
-        icon: "text-red-600",
-        title: "text-[#111]",
-        message: "text-[#555]",
-        closeButton: "text-[#555] hover:text-red-600 hover:bg-red-100 rounded-full",
-        name: "jam:alert",
+        container: "bg-danger-subtle border-start border-5 border-danger",
+        icon: "text-danger",
+        title: "text-dark fw-semibold",
+        message: "text-secondary",
+        closeButton: "text-secondary",
+        iconName: "close",
     },
 } as const;
 
@@ -52,6 +51,7 @@ export const Alert = memo(({
 
     const handleDismiss = useCallback(() => {
         setIsAnimating(false);
+
         setTimeout(() => {
             onDismiss();
         }, 300);
@@ -76,11 +76,15 @@ export const Alert = memo(({
     useEffect(() => {
         if (isVisible) {
             setShouldRender(true);
+
             const timer = setTimeout(() => setIsAnimating(true), 10);
+
             return () => clearTimeout(timer);
         } else {
             setIsAnimating(false);
+
             const timer = setTimeout(() => setShouldRender(false), 300);
+
             return () => clearTimeout(timer);
         }
     }, [isVisible]);
@@ -89,31 +93,55 @@ export const Alert = memo(({
 
     return (
         <div
-            className={`
-                fixed top-2 right-4 max-w-sm w-full transform transition-all duration-300 ease-in-out z-700000
-                ${isAnimating
-                    ? 'translate-x-0 opacity-100 scale-100'
-                    : 'translate-x-full opacity-0 scale-95'
-                }
-                ${className}
-            `}
+            className={`position-fixed top-0 end-0 mt-2 me-3 ${className}`}
+            style={{
+                maxWidth: '24rem',
+                width: '100%',
+                transform: isAnimating ? 'translateX(0)' : 'translateX(100%)',
+                opacity: isAnimating ? 1 : 0,
+                transition: 'all 0.3s ease-in-out',
+                zIndex: 700000,
+            }}
             role="alert"
             aria-live="polite"
         >
-            <div className={`${styles.container} border rounded-lg p-1 shadow-xl flex items-start gap-3 backdrop-blur-sm`}>
+            <div
+                className={`${styles.container} rounded shadow-lg p-3 d-flex align-items-start gap-3 position-relative`}
+                style={{ backdropFilter: 'blur(8px)' }}
+            >
 
                 {/* Alert Icon */}
-                <div className={`${styles.icon} flex-shrink-0 mt-0.5`}>
-                    {/* <Icon icon={styles.name} className="text-4xl" /> */}
+                <div
+                    className={`${styles.icon} flex-shrink-0`}
+                    style={{ marginTop: '2px' }}
+                >
+                    <svg
+                        width="32"
+                        height="32"
+                    >
+                        <use xlinkHref={`#${styles.iconName}`} />
+                    </svg>
                 </div>
 
-                <div className="flex-1 min-w-0">
+                <div
+                    className="flex-grow-1"
+                    style={{ minWidth: 0 }}
+                >
                     {title && (
-                        <h4 className={`${styles.title} font-semibold text-sm mb-1`}>
+                        <h4
+                            className={`${styles.title} mb-1`}
+                            style={{ fontSize: '0.875rem' }}
+                        >
                             {title}
                         </h4>
                     )}
-                    <p className={`${styles.message} text-sm leading-relaxed`}>
+                    <p
+                        className={`${styles.message} mb-0`}
+                        style={{
+                            fontSize: '0.875rem',
+                            lineHeight: '1.5'
+                        }}
+                    >
                         {message}
                     </p>
                 </div>
@@ -121,24 +149,68 @@ export const Alert = memo(({
                 {/* Close button */}
                 <button
                     onClick={handleDismiss}
-                    className={`${styles.closeButton} flex-shrink-0 p-1 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-current cursor-pointer`}
+                    className={`${styles.closeButton} btn btn-link p-1 flex-shrink-0 border-0`}
+                    style={{
+                        textDecoration: 'none',
+                        transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={(e) => {
+                        if (type === 'success') {
+                            e.currentTarget.style.backgroundColor = '#e9ecef';
+                            e.currentTarget.style.color = '#111';
+                        } else {
+                            e.currentTarget.style.backgroundColor = '#f8d7da';
+                            e.currentTarget.style.color = '#dc3545';
+                        }
+                        e.currentTarget.style.borderRadius = '50%';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = '#6c757d';
+                    }}
                     aria-label="Dismiss alert"
                 >
-                    {/* <Icon icon="material-symbols-light:close-rounded" className="text-4xl" /> */}
+                    <svg
+                        width="32"
+                        height="32"
+                    >
+                        <use xlinkHref="#alert-close" />
+                    </svg>
                 </button>
             </div>
 
             {/* Auto-dismiss progress bar */}
             {autoDismiss && isVisible && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 rounded-b-lg overflow-hidden">
+                <div
+                    className="position-absolute bottom-0 start-0 end-0 overflow-hidden rounded-bottom"
+                    style={{
+                        height: '4px',
+                        backgroundColor: 'rgba(0,0,0,0.2)'
+                    }}
+                >
                     <div
-                        className="h-full bg-current opacity-30 origin-left"
+                        className="h-100"
                         style={{
+                            backgroundColor: 'currentColor',
+                            opacity: 0.3,
+                            transformOrigin: 'left',
                             animation: `shrink ${autoDismissDelay}ms linear forwards`,
                         }}
                     />
                 </div>
             )}
+
+            <style jsx>{`
+                @keyframes shrink {
+                    from {
+                        transform: scaleX(1);
+                    }
+                    to {
+                        transform: scaleX(0);
+                    }
+                }
+            `}</style>
+
         </div>
     );
 });

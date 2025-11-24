@@ -13,8 +13,8 @@ export const CONTACT: Contact[] = [
         text: "+977 9842566778",
         href: "tel:+9779842566778",
     },
-    // {
-    //     text: "",
-    //     href: "mailto:",
-    // },
+    {
+        text: "pathivarababystore@gmail.com",
+        href: "mailto:pathivarababystore@gmail.com",
+    },
 ];
