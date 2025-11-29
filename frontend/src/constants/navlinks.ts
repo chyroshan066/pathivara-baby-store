@@ -9,10 +9,10 @@ export const NAVLINKS: Link[] = [
         name: "About",
         href: "/about"
     },
-    // {
-    //     name: "Product",
-    //     href: "/product"
-    // },
+    {
+        name: "Gallery",
+        href: "/gallery"
+    },
     {
         name: "Contact",
         href: "/contact"

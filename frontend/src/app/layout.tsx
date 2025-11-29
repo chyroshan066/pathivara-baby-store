@@ -9,7 +9,7 @@ import { dmSans, inter } from "./fonts";
 import { Preloader } from "@/components/Preloader/Preloader";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer/Footer";
-import { babyProductCategoriesStructuredData, babyStoreStructuredData } from "@/constants";
+import { babyProductCategoriesStructuredData, babyStoreStructuredData, baseURL } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Pathivara Baby Store - Everything Your Little One Needs | Baby Products in Itahari",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     description: "Your trusted destination for quality baby products in Itahari. Shop baby clothes, shoes, toys, feeding essentials, and nursery items. Safe products for your little ones.",
     type: "website",
     locale: "en_US",
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+    url: `${baseURL}`,
     siteName: "Pathivara Baby Store",
     images: [
       {

@@ -4,5 +4,6 @@ export * from "./categories";
 export * from "./products";
 export * from "./testimonials";
 export * from "./contact";
+export * from "./gallery";
 
 export const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
